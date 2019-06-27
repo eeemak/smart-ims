@@ -1,0 +1,27 @@
+<div id="content" class="app-content" role="main">
+  <div class="app-content-body ">
+
+
+    <div class="bg-light lter b-b wrapper-md">
+      <h1 class="m-n font-thin h3">Products</h1>
+    </div>
+    <div class="wrapper-md">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          DataTables
+        </div>
+        <div class="table-responsive">
+          <flx-ui-datatable [headers]="['Name','Category','Company']"
+            [dataKeys]="['name','category_name','company_name']" [dataSrcKey]="'data'" [limit]="10"
+            [hasAddButton]="true" [hasActionButtons]="true" spinnerSrc="assets/img/loader.gif"
+            searchPlaceholder="Enter description, fullname, or mobile to search"
+            [actionButtons]="[{text:'',tooltip:'View info',tooltipPosition:'left',icon:'fa fa-eye text-primary',class:'btn-default'},{text:'',tooltip:'Edit info',icon:'fa fa-edit text-info',class:'btn-default'},{text:'',tooltip:'Delete item',tooltipPosition:'right',icon:'fa fa-trash text-danger',iconPosition:'right',class:'btn-default'}]"
+            [dataUrl]="productsUrl" (firstActionButtonClicked)="viewItem($event)"
+            (secondActionButtonClicked)="editItem($event)" (thirdActionButtonClicked)="deleteItem($event)"
+            [classes]="{addButton:'btn btn-primary',tableHeader:'table-header'}" (addButtonClicked)="addItem()">
+          </flx-ui-datatable>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

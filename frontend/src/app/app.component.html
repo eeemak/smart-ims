@@ -1,0 +1,7 @@
+<ng-snotify></ng-snotify>
+<div class="app app-header-fixed">
+    <app-header *ngIf="loggedIn"></app-header>
+    <app-sidebar *ngIf="loggedIn"></app-sidebar>
+    <router-outlet></router-outlet>
+    <app-footer *ngIf="loggedIn"></app-footer>
+</div>

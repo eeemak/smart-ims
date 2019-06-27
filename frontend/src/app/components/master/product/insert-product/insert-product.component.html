@@ -1,0 +1,108 @@
+<div id="content" class="app-content" role="main">
+  <div class="app-content-body ">
+
+
+    <div class="bg-light lter b-b wrapper-md">
+      <h1 class="m-n font-thin h3">Products<a routerLink="/products" class="btn btn-sm btn-primary pull-right"><i class="fa fa-list-alt"></i> Products</a> </h1>
+    </div>
+    <div class="wrapper-md">
+      <div class="panel panel-default">
+        <div class="panel-heading font-bold" *ngIf="!editMode">Add Product </div>
+        <div class="panel-heading font-bold" *ngIf="editMode">Edit Product </div>
+        <div class="panel-body">
+          <form #productForm=ngForm (ngSubmit)="onSubmit()" autocomplete="off">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Product Name</label>
+                  <input type="name" name="name" class="form-control" placeholder="Enter product name" [(ngModel)]="form.name">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Product Short Name</label>
+                  <input type="text" name="short_name" class="form-control" placeholder="Enter product short name" [(ngModel)]="form.short_name">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label class="control-label">Product Category</label>
+                  <select name="product_category_id" class="form-control" [(ngModel)]="form.product_category_id">
+                    <option *ngFor="let category of productCategories" [value]="category.id">{{ category.name }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label class="control-label">Product Brand</label>
+                  <select name="product_brand_id" class="form-control" [(ngModel)]="form.product_brand_id">
+                    <option *ngFor="let brand of productBrands" [value]="brand.id">{{ brand.name }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label class="control-label">Product Group</label>
+                  <select name="product_group_id" class="form-control" [(ngModel)]="form.product_group_id">
+                    <option *ngFor="let group of productGroups" [value]="group.id">{{ group.name }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label class="control-label">Unit Of Measurement</label>
+                  <select name="unit_of_measurement_id" class="form-control" [(ngModel)]="form.unit_of_measurement_id">
+                    <option [value]="1">Kilogram</option>
+                    <option [value]="2">Litre</option>
+                    <option [value]="3">Piece</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Product Code</label>
+                  <input type="text" name="code" class="form-control" placeholder="Enter Product Code" [(ngModel)]="form.code">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>SKU</label>
+                  <input type="text" name="sku" class="form-control" placeholder="Enter SKU" [(ngModel)]="form.sku">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Alert Quantity</label>
+                  <input type="text" name="alert_quantity" class="form-control" placeholder="Enter Alert Quantity" [(ngModel)]="form.alert_quantity">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Selling Price</label>
+                  <input type="text" name="selling_price" class="form-control" placeholder="Enter Selling Price" [(ngModel)]="form.selling_price">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Discount</label>
+                  <input type="text" name="discount" class="form-control" placeholder="Enter Discount" [(ngModel)]="form.discount">
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label>Product Description</label>
+                  <textarea name="description" class="form-control" placeholder="Enter product description" [(ngModel)]="form.description"></textarea>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-sm btn-success" *ngIf="!editMode"><i class="fa fa-save"></i> Save</button>
+            <button type="submit" class="btn btn-sm btn-success" *ngIf="editMode"><i class="fa fa-save"></i> Update</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
